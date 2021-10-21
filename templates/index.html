@@ -5,7 +5,11 @@
     <title>Template is working </title>
 </head>
 <body>
-    <h1>I am a template of the index page</h1>
-{{ Name }}
+    <h1>Welcome to the Text Analyzer. Enter Your Text Below.</h1>
+    <form action="/removepunc" method="get">
+        <textarea name='textOfTextArea' style="margin: 0px; width: 741px; height: 210px;" spellcheck="false">
+        </textarea><br/>
+        <button type="submit">Analyze Text</button>
+    </form>
 </body>
 </html>
