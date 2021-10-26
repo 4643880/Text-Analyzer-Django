@@ -15,25 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
-#  1 Code For URLS and Views
-# from . import views
-# urlpatterns = [
-#     path('admin/', admin.site.urls),
-#     path('', views.home, name="Home")
-# ]
-#
-
-
-
-# 2 Pipeline in Django
 from . import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name="Home"),
-    path('removepunc', views.removePunc, name="rempunc"),
-    path('capitalizefirst', views.capfirst, name="capfirst"),
-    path('newlineremove', views.newlineremove, name="newlineremove"),
-    path('spaceremove', views.spaceremove, name="spaceremove"),
-    path('charcount', views.charcount, name="charcount"),
+    path('', views.indexFunc, name="myindex"),
+    path('analyze', views.analyze, name='analyze'),
+
 ]
+
+    # path('removePunc', views.removePuncFunc, name='removePunc'),
+    # path('capfirst', views.capfirstFunc, name='views.removePuncFunc'),
+    # path('spaceremove', views.spaceremoveFunc, name='spaceremove'),
+    # path('charcount', views.charcountFunc, name='charcount'),

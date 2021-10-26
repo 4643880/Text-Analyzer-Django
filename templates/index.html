@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Template is working </title>
+    <title>Text Analyzer</title>
 </head>
 <body>
-    <h1>Welcome to the Text Analyzer. Enter Your Text Below.</h1>
-    <form action="/removepunc" method="get">
-        <textarea name='textOfTextArea' style="margin: 0px; width: 741px; height: 210px;" spellcheck="false">
-        </textarea><br/>
-        <button type="submit">Analyze Text</button>
+    <h1>Welcome to text Analyzer.</h1>
+    <form action="/analyze" method="get">
+        <textarea name="textareaNameHTML" spellcheck="false" style="margin: 0px; height: 140px; width: 1339px;"></textarea>
+        <input type="checkbox" name="removePuncHTML"> Remove Punctuation <br/>
+        <button>Anylyze Text</button>
     </form>
 </body>
 </html>
