@@ -6,7 +6,6 @@ def indexFunc(request):
     return render(request, 'index.html')
     # return HttpResponse("Hello")
 
-
 def analyze(request):
     # Getting Text
     inputText = request.POST.get('textareaNameHTML', 'default')
@@ -46,17 +45,27 @@ def analyze(request):
         params = {'yourCapitalize_text': analyzedcapitalize}
         return render(request, 'analyze.html', params)
     elif newLineText == 'on':
-        analyzedNewLine= ""
+        analyzedNewLine = ""
         for i in inputText:
             if i != "\n" and i != "\r":
                 analyzedNewLine = analyzedNewLine + i
         params = {'yourNewLine_text': analyzedNewLine}
         return render(request, 'analyze.html', params)
     elif extraSpaceText == 'on':
-        analyzedExtraSpace= ""
-        for i in inputText:
-            if i != "  ":
-                analyzedExtraSpace = analyzedExtraSpace + i
+        analyzedExtraSpace = ""
+        # Short Code
+        for i, j in enumerate(inputText):
+            if not(inputText[i] == " " and inputText[i + 1] == " "):
+                analyzedExtraSpace = analyzedExtraSpace + j
+
+        # Lengthy Code for understanding
+        # inputText[i + 1] means next index number
+        # for i, j in enumerate(inputText):
+        #     if inputText[i] == " " and inputText[i + 1] == " ":
+        #         pass
+        #     else:
+        #         analyzedExtraSpace = analyzedExtraSpace + j
+
         params = {'yourExtraSpace_text': analyzedExtraSpace}
         return render(request, 'analyze.html', params)
     else:
