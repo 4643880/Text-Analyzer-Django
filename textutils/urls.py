@@ -23,8 +23,3 @@ urlpatterns = [
     path('analyze', views.analyze, name='analyze'),
 
 ]
-
-    # path('removePunc', views.removePuncFunc, name='removePunc'),
-    # path('capfirst', views.capfirstFunc, name='views.removePuncFunc'),
-    # path('spaceremove', views.spaceremoveFunc, name='spaceremove'),
-    # path('charcount', views.charcountFunc, name='charcount'),

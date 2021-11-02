@@ -9,14 +9,14 @@ def indexFunc(request):
 
 def analyze(request):
     # Getting Text
-    inputText = request.GET.get('textareaNameHTML', 'default')
+    inputText = request.POST.get('textareaNameHTML', 'default')
     # Getting On / Off Values
-    remText = request.GET.get('removePuncHTML', 'off')
-    upperText = request.GET.get('upperHTML', 'off')
-    lowerText = request.GET.get('lowerHTML', 'off')
-    capitalizeText = request.GET.get('capitalizeHTML', 'off')
-    newLineText = request.GET.get('newLineHTML', 'off')
-    extraSpaceText = request.GET.get('extraSpaceHTML', 'off')
+    remText = request.POST.get('removePuncHTML', 'off')
+    upperText = request.POST.get('upperHTML', 'off')
+    lowerText = request.POST.get('lowerHTML', 'off')
+    capitalizeText = request.POST.get('capitalizeHTML', 'off')
+    newLineText = request.POST.get('newLineHTML', 'off')
+    extraSpaceText = request.POST.get('extraSpaceHTML', 'off')
 
     # Selections Statement Starts Here
     if remText == 'on':
@@ -48,7 +48,7 @@ def analyze(request):
     elif newLineText == 'on':
         analyzedNewLine= ""
         for i in inputText:
-            if i != "\n":
+            if i != "\n" and i != "\r":
                 analyzedNewLine = analyzedNewLine + i
         params = {'yourNewLine_text': analyzedNewLine}
         return render(request, 'analyze.html', params)
@@ -61,40 +61,4 @@ def analyze(request):
         return render(request, 'analyze.html', params)
     else:
         return HttpResponse('Something Went Wrong (Aizaz)')
-
-
-
-
-
-    # elif upperText == 'on' and remText == 'on':
-    #     totalpunctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
-    #     analyzed_var = ''
-    #     for i in inputText:
-    #         if i not in totalpunctuations:
-    #             analyzed_var = analyzed_var + i
-    #     doingUpperCaseVar = str(inputText).upper()
-    #     params = {'analyzed_text': analyzed_var, 'yourUpperCase_text': doingUpperCaseVar}
-    #     return render(request, 'analyze.html', params)
-
-
-
-
-
-
-
-
-#
-# def removePuncFunc(request):
-#     gettingText = print(request.GET.get('textareaName', 'default'))
-#     print(gettingText)
-#     return HttpResponse("Hello")
-#
-# def capfirstFunc(request):
-#     return HttpResponse("Hello")
-#
-# def spaceremoveFunc(request):
-#     return HttpResponse("Hello")
-#
-# def charcountFunc(request):
-#     return HttpResponse("Hello asdfd")
 
